@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+class Main {
+    public static void PushZeros(int[] a, int n) {
+        int counter = 0, temp = 0;
+        for(int i=0; i<n; i++) {
+            if(a[i] == 0) {
+                temp = a[i];
+                a[i] = a[counter];
+                a[counter] = temp;
+                counter++;
+            }
+        }
+    }
+
+    public static void main (String[] args) {
+        Scanner scanf = new Scanner(System.in);
+
+        int n = scanf.nextInt();
+        int[] array = new int [n];
+
+        for(int i=0; i<n; i++) {
+            array[i] = scanf.nextInt();
+        }
+
+        scanf.close();
+
+        PushZeros(array, n);
+
+        for(int i=0; i<n; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
